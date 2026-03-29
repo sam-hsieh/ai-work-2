@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>數位行銷分享講座 | 面對 AI 來臨，迎接未來挑戰</title>
+    
+    <!-- 引入 Google Fonts: Montserrat (標題) & Noto Sans TC (內文) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700;900&family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'luxury-black': '#0A0A0A',    /* 深黑色背景 */
+                        'luxury-dark': '#1A1A1A',     /* 卡片深色 */
+                        'luxury-gold': '#C5A059',     /* 奢華金點綴 */
+                        'luxury-bronze': '#8E6E3E',   /* 銅色過渡 */
+                        'luxury-gray': '#A0A0A0',     /* 輔助灰色 */
+                    },
+                    fontFamily: {
+                        sans: ['"Noto Sans TC"', 'sans-serif'],
+                        heading: ['Montserrat', '"Noto Sans TC"', 'sans-serif'],
+                    },
+                    letterSpacing: {
+                        'widest-xl': '0.25em',
+                    },
+                    animation: {
+                        'scan-line': 'scan 8s linear infinite',
+                        'slow-fade': 'fadeIn 2s ease-out forwards',
+                    },
+                    keyframes: {
+                        scan: {
+                            '0%': { transform: 'translateY(-100%)' },
+                            '100%': { transform: 'translateY(100%)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0A0A0A;
+            color: #FFFFFF;
+        }
+        /* 直角規範覆寫 */
+        * {
+            border-radius: 0 !important;
+        }
+        .magazine-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+        }
+        /* 自定義滾動條 */
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+        }
+    </style>
+</head>
+<body class="antialiased overflow-x-hidden">
+
+    <!-- 導覽列 -->
+    <nav class="fixed w-full z-50 mix-blend-difference px-8 py-6 flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <span class="text-xl font-heading font-black tracking-widest uppercase">Digital Elite.</span>
+        </div>
+        <div class="hidden md:flex space-x-12 text-xs font-bold tracking-widest uppercase">
+            <a href="#about" class="hover:text-luxury-gold transition-colors">Vision</a>
+            <a href="#agenda" class="hover:text-luxury-gold transition-colors">Agenda</a>
+            <a href="#speakers" class="hover:text-luxury-gold transition-colors">Speakers</a>
+            <a href="#apply" class="hover:text-luxury-gold transition-colors underline underline-offset-8 decoration-luxury-gold">Register</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section (全屏奢華感) -->
+    <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <!-- 背景幾何 SVG 動畫 -->
+        <div class="absolute inset-0 z-0 opacity-20">
+            <svg class="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                <defs>
+                    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#C5A059" stroke-width="0.1"/>
+                    </pattern>
+                </defs>
+                <rect width="100" height="100" fill="url(#grid)" />
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-b from-luxury-black via-transparent to-luxury-black"></div>
+        </div>
+
+        <!-- 浮動線條動畫 -->
+        <div class="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-transparent via-luxury-gold/30 to-transparent animate-scan-line"></div>
+        <div class="absolute top-0 right-1/3 w-px h-full bg-gradient-to-b from-transparent via-luxury-gold/10 to-transparent animate-scan-line [animation-delay:2s]"></div>
+
+        <div class="relative z-10 text-center px-6 max-w-5xl animate-slow-fade">
+            <p class="font-heading font-bold text-luxury-gold tracking-widest-xl uppercase mb-8 text-sm md:text-base">
+                — Exclusive Marketing Symposium 2024 —
+            </p>
+            <h1 class="text-6xl md:text-9xl font-heading font-black mb-10 leading-none tracking-tighter">
+                面對 AI 來臨<br>
+                <span class="text-transparent" style="-webkit-text-stroke: 1px #C5A059;">迎接未來挑戰</span>
+            </h1>
+            <p class="text-xl md:text-2xl font-light text-luxury-gray mb-16 tracking-widest">
+                不是 AI 取代你，是 <span class="text-white font-bold">AI 幫助你</span>
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-10">
+                <a href="#apply" class="group relative px-12 py-5 bg-luxury-gold text-luxury-black font-bold tracking-widest uppercase hover:bg-white transition-all duration-500 overflow-hidden">
+                    <span class="relative z-10">立即開始預約</span>
+                    <div class="absolute inset-0 bg-white translate-y-full group-hover:translate-y-0 transition-transform duration-500"></div>
+                </a>
+                <a href="#about" class="text-xs font-bold tracking-widest uppercase border-b-2 border-white/20 pb-2 hover:border-luxury-gold transition-all">
+                    Learn More Vision
+                </a>
+            </div>
+        </div>
+
+        <!-- 滾動引導 -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center opacity-30">
+            <div class="w-px h-20 bg-luxury-gold"></div>
+        </div>
+    </section>
+
+    <!-- 品牌使命故事 (雜誌排版) -->
+    <section id="about" class="py-32 bg-white text-luxury-black relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-12 gap-12">
+            <div class="md:col-span-5 relative">
+                <div class="aspect-[3/4] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&q=80&w=800" class="w-full h-full object-cover grayscale" alt="AI Technology">
+                </div>
+                <div class="absolute -bottom-10 -right-10 bg-luxury-gold p-12 hidden md:block">
+                    <h3 class="font-heading text-4xl font-black text-white">10+</h3>
+                    <p class="text-xs font-bold tracking-widest uppercase text-luxury-black">Expert Speakers</p>
+                </div>
+            </div>
+            <div class="md:col-span-7 flex flex-col justify-center space-y-10">
+                <h2 class="text-5xl md:text-7xl font-heading font-black uppercase leading-none">
+                    Digital<br>Transformation.
+                </h2>
+                <div class="w-24 h-2 bg-luxury-gold"></div>
+                <p class="text-xl text-gray-600 leading-relaxed font-light">
+                    在這個數據驅動的時代，行銷不再只是創意的產出，而是技術與思維的深度交織。我們致力於打破科技的門檻，讓每一位行銷精英都能掌握 AI 的核心力量，將挑戰轉化為前所未有的增長機遇。
+                </p>
+                <div class="grid grid-cols-2 gap-8 pt-8">
+                    <div>
+                        <span class="block text-2xl font-bold mb-2">掌握工具</span>
+                        <p class="text-sm text-gray-500">深入解析生成式 AI 在內容行銷的應用。</p>
+                    </div>
+                    <div>
+                        <span class="block text-2xl font-bold mb-2">數據洞察</span>
+                        <p class="text-sm text-gray-500">利用機器學習預測消費者行為精準投放。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 精選議程/服務卡片 (奢華深色感) -->
+    <section id="agenda" class="py-32 bg-luxury-black">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+                <div>
+                    <span class="text-luxury-gold font-bold tracking-widest uppercase text-sm">Main Agenda</span>
+                    <h2 class="text-5xl font-heading font-black mt-4">講座精選議程</h2>
+                </div>
+                <p class="text-luxury-gray max-w-sm text-right font-light">
+                    從底層邏輯到實戰應用，我們規劃了四大核心主題，助您全方位建構 AI 行銷戰力。
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-4 gap-px bg-white/10">
+                <!-- 議程卡片 1 -->
+                <div class="group bg-luxury-dark p-12 hover:bg-luxury-gold transition-all duration-500 cursor-pointer">
+                    <span class="block font-heading text-4xl font-light text-luxury-gold group-hover:text-white mb-10">01.</span>
+                    <h3 class="text-2xl font-bold mb-6 group-hover:text-luxury-black">AI 內容革命</h3>
+                    <p class="text-sm text-luxury-gray group-hover:text-luxury-black/70 leading-loose">
+                        如何運用 LLM 模型自動化產出高品質文案與社群影音素材。
+                    </p>
+                </div>
+                <!-- 議程卡片 2 -->
+                <div class="group bg-luxury-dark p-12 hover:bg-luxury-gold transition-all duration-500 cursor-pointer">
+                    <span class="block font-heading text-4xl font-light text-luxury-gold group-hover:text-white mb-10">02.</span>
+                    <h3 class="text-2xl font-bold mb-6 group-hover:text-luxury-black">精準受眾畫像</h3>
+                    <p class="text-sm text-luxury-gray group-hover:text-luxury-black/70 leading-loose">
+                        透過大數據分析，重新定義數位足跡下的消費者行為軌跡。
+                    </p>
+                </div>
+                <!-- 議程卡片 3 -->
+                <div class="group bg-luxury-dark p-12 hover:bg-luxury-gold transition-all duration-500 cursor-pointer">
+                    <span class="block font-heading text-4xl font-light text-luxury-gold group-hover:text-white mb-10">03.</span>
+                    <h3 class="text-2xl font-bold mb-6 group-hover:text-luxury-black">自動化工作流</h3>
+                    <p class="text-sm text-luxury-gray group-hover:text-luxury-black/70 leading-loose">
+                        整合行銷自動化工具，減少 70% 的重複性行政與數據作業。
+                    </p>
+                </div>
+                <!-- 議程卡片 4 -->
+                <div class="group bg-luxury-dark p-12 hover:bg-luxury-gold transition-all duration-500 cursor-pointer">
+                    <span class="block font-heading text-4xl font-light text-luxury-gold group-hover:text-white mb-10">04.</span>
+                    <h3 class="text-2xl font-bold mb-6 group-hover:text-luxury-black">倫理與品牌未來</h3>
+                    <p class="text-sm text-luxury-gray group-hover:text-luxury-black/70 leading-loose">
+                        探討 AI 時代下的資訊透明度與品牌信賴感的重塑。
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 用戶信任感區塊 (奢華黑白對比) -->
+    <section class="py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="grid md:grid-cols-2 gap-20 items-center">
+                <div class="space-y-10">
+                    <h2 class="text-5xl font-heading font-black text-luxury-black uppercase tracking-tighter">
+                        Voices of<br>Authority.
+                    </h2>
+                    <div class="relative pl-12 border-l-4 border-luxury-gold">
+                        <p class="text-2xl italic font-light text-luxury-black leading-relaxed">
+                            「這場講座徹底改變了我對數位行銷的認知，AI 不再是遙不可及的技術，而是我每天最得力的夥伴。」
+                        </p>
+                        <div class="mt-8 flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-luxury-black"></div>
+                            <div>
+                                <p class="font-bold">David Chen</p>
+                                <p class="text-xs text-luxury-gray tracking-widest uppercase">Head of Marketing, Tech-Flow</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-px bg-gray-200 border border-gray-200">
+                    <div class="bg-white p-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+                        <span class="font-heading font-black text-2xl tracking-tighter">GOOGLE.</span>
+                    </div>
+                    <div class="bg-white p-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+                        <span class="font-heading font-black text-2xl tracking-tighter">META.</span>
+                    </div>
+                    <div class="bg-white p-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+                        <span class="font-heading font-black text-2xl tracking-tighter">APPLE.</span>
+                    </div>
+                    <div class="bg-white p-12 flex items-center justify-center grayscale hover:grayscale-0 transition-all">
+                        <span class="font-heading font-black text-2xl tracking-tighter">ADOBE.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 預約表單區塊 (轉換優化) -->
+    <section id="apply" class="py-32 bg-luxury-dark relative overflow-hidden">
+        <!-- 裝飾文字背景 -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20rem] font-black text-white/[0.02] select-none pointer-events-none tracking-tighter">
+            RESERVE
+        </div>
+
+        <div class="max-w-3xl mx-auto px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-heading font-black mb-6">席位預約</h2>
+                <p class="text-luxury-gold font-bold tracking-widest uppercase">限額 50 名，僅邀請行銷決策者參加</p>
+            </div>
+
+            <form class="space-y-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold tracking-widest uppercase text-luxury-gray">Full Name</label>
+                        <input type="text" placeholder="您的姓名" class="w-full bg-transparent border-b border-luxury-gray/30 py-4 focus:outline-none focus:border-luxury-gold transition-all text-white placeholder:text-gray-700">
+                    </div>
+                    <div class="space-y-2">
+                        <label class="text-xs font-bold tracking-widest uppercase text-luxury-gray">Email Address</label>
+                        <input type="email" placeholder="電子郵件" class="w-full bg-transparent border-b border-luxury-gray/30 py-4 focus:outline-none focus:border-luxury-gold transition-all text-white placeholder:text-gray-700">
+                    </div>
+                </div>
+                <div class="space-y-2">
+                    <label class="text-xs font-bold tracking-widest uppercase text-luxury-gray">Company & Title</label>
+                    <input type="text" placeholder="公司名稱與職稱" class="w-full bg-transparent border-b border-luxury-gray/30 py-4 focus:outline-none focus:border-luxury-gold transition-all text-white placeholder:text-gray-700">
+                </div>
+                <div class="pt-10">
+                    <button class="w-full bg-luxury-gold py-6 text-luxury-black font-black tracking-[0.5em] uppercase hover:bg-white transition-all shadow-2xl">
+                        立即預約席次
+                    </button>
+                    <p class="mt-6 text-center text-xs text-luxury-gray font-light">
+                        提交後，專人將於 48 小時內與您聯繫確認資格。
+                    </p>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-luxury-black pt-32 pb-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-12 gap-16 mb-24">
+            <div class="md:col-span-5 space-y-8">
+                <span class="text-3xl font-heading font-black tracking-widest uppercase">Digital Elite.</span>
+                <p class="text-luxury-gray max-w-sm font-light leading-loose">
+                    我們致力於引領數位行銷的下一波浪潮，透過跨領域的知識對話，重塑商業競爭力。
+                </p>
+                <div class="flex space-x-8">
+                    <a href="#" class="hover:text-luxury-gold transition-colors"><i data-lucide="linkedin"></i></a>
+                    <a href="#" class="hover:text-luxury-gold transition-colors"><i data-lucide="instagram"></i></a>
+                    <a href="#" class="hover:text-luxury-gold transition-colors"><i data-lucide="twitter"></i></a>
+                </div>
+            </div>
+
+            <div class="md:col-span-3 space-y-6">
+                <h4 class="text-xs font-bold tracking-widest uppercase text-luxury-gold">Contact.</h4>
+                <ul class="space-y-4 text-sm font-light text-luxury-gray">
+                    <li class="flex items-start space-x-3">
+                        <i data-lucide="map-pin" class="w-4 h-4 text-luxury-gold"></i>
+                        <span>台北市信義區信義路五段 7 號<br>台北 101 大樓 88 樓</span>
+                    </li>
+                    <li class="flex items-center space-x-3">
+                        <i data-lucide="phone" class="w-4 h-4 text-luxury-gold"></i>
+                        <span>02-8888-9999</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="md:col-span-4 relative h-64 grayscale opacity-50 hover:opacity-100 transition-all overflow-hidden border border-white/10">
+                <!-- 模擬地圖區塊 -->
+                <div class="absolute inset-0 bg-luxury-dark flex items-center justify-center">
+                    <span class="text-[10px] tracking-[1em] uppercase text-luxury-gold">Venue Map View</span>
+                </div>
+                <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&q=80&w=400" class="w-full h-full object-cover" alt="Venue Map">
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-8 pt-12 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-[10px] font-bold tracking-widest uppercase text-luxury-gray">
+            <p>&copy; 2024 DIGITAL ELITE SYMPOSIUM. ALL RIGHTS RESERVED.</p>
+            <div class="flex space-x-10 mt-6 md:mt-0">
+                <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 初始化 Lucide 圖標
+        lucide.createIcons();
+
+        // 頁面加載動畫
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('section');
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('opacity-100');
+                        entry.target.classList.remove('opacity-0');
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                section.classList.add('transition-opacity', 'duration-1000', 'opacity-0');
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
